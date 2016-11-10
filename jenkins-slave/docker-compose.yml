@@ -1,0 +1,9 @@
+jenkins-slave1:
+  container_name: jenkins-slave1
+  image: bzon/ricew-jenkins-slave
+  net: adopnetwork
+  privileged: true
+  environment:
+    SLAVE_LABELS: "psql"
+    SLAVE_EXECUTORS: "5"
+

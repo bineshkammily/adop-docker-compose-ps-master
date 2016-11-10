@@ -1,0 +1,6 @@
+svn-server:
+ image: bzon/subversion-edge:latest
+ ports:
+  - "3343:3343"
+  - "3380:80"
+  - "4434:4434"

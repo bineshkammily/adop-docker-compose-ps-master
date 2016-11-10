@@ -1,0 +1,58 @@
+{
+        "core" : [
+            {
+                "type": "Tool Links",
+                "components" : [
+                    {
+                        "id": "jenkins",
+                        "title": "jenkins",
+                        "img": "img/jenkins.png",
+                        "description": "Continuous Integration & Automation Server",
+                        "link": "/jenkins/"
+                    },
+                    {
+                        "id": "### GITTYPE ###",
+                        "title": "### GITTYPE ###",
+                        "img": "### GITTYPE ###",
+                        "description": "Git Repository Management & Code Review Tool",
+                        "link": "### GITTYPE ###"
+                    },
+                    {
+                        "id": "erp-manager",
+                        "title": "erp-manager",
+                        "img": "img/erp-manager.png",
+                        "description": "AFPO ERP Manager Application.",
+                        "link": "",
+                        "linkCreate": {
+                            "host": "erp-manager",
+                            "endPath": "/"
+                        }
+                    },
+                    {
+                        "id": "svn-server",
+                        "title": "Subversion Server",
+                        "img": "img/csvn.png",
+                        "description": "Collabnet Subversion Edge Server",
+                        "link": "/csvn/"
+                    },
+                    {
+                        "id": "ldap-ltb",
+                        "title": "ltb",
+                        "img": "img/ltb.png",
+                        "description": "Application that allows users to change their password in LDAP",
+                        "link": "/ldap-ltb/"
+                    },
+                    {
+                        "id": "ldap-phpadmin",
+                        "title": "phpldapadmin",
+                        "img": "img/phpldapadmin.png",
+                        "description": "Browser to manage your LDAP server",
+                        "link": "/ldap-phpadmin/"
+                    }
+                ]
+            }
+        ],
+        "blueprints": [
+            {"url": "bp/demo-release-note.html"}
+        ]
+    }

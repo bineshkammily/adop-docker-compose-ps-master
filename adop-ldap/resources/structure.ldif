@@ -1,0 +1,56 @@
+version: 1
+dn: ou=people,${SLAPD_FULL_DOMAIN}
+objectClass: organizationalUnit
+objectClass: top
+ou: people
+
+dn: cn=jenkins,ou=people,${SLAPD_FULL_DOMAIN}
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: jenkins
+displayName: jenkins
+givenName: jenkins
+mail: jenkins@${SLAPD_DOMAIN}
+sn: jenkins
+uid: jenkins
+userPassword:: ${JENKINS_PASSWORD}
+
+dn: cn=${INITIAL_ADMIN_USER},ou=people,${SLAPD_FULL_DOMAIN}
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: ${INITIAL_ADMIN_USER}
+displayName: Admin User
+givenName: Admin
+mail: ${INITIAL_ADMIN_USER}@${SLAPD_DOMAIN}
+sn: User
+uid: ${INITIAL_ADMIN_USER}
+userPassword:: ${INITIAL_ADMIN_PASSWORD}
+
+dn: ou=groups,${SLAPD_FULL_DOMAIN}
+objectClass: organizationalUnit
+objectClass: top
+ou: groups
+
+dn: cn=administrators,ou=groups,${SLAPD_FULL_DOMAIN}
+objectClass: groupOfUniqueNames
+objectClass: top
+cn: administrators
+uniqueMember: cn=jenkins,ou=people,${SLAPD_FULL_DOMAIN}
+uniqueMember: cn=${INITIAL_ADMIN_USER},ou=people,${SLAPD_FULL_DOMAIN}
+
+dn: cn=sonar-administrators,ou=groups,${SLAPD_FULL_DOMAIN}
+objectClass: groupOfUniqueNames
+objectClass: top
+cn: sonar-administrators
+uniqueMember: cn=${INITIAL_ADMIN_USER},ou=people,${SLAPD_FULL_DOMAIN}
+
+dn: cn=sonar-users,ou=groups,${SLAPD_FULL_DOMAIN}
+objectClass: groupOfUniqueNames
+objectClass: top
+cn: sonar-users
+uniqueMember: cn=${INITIAL_ADMIN_USER},ou=people,${SLAPD_FULL_DOMAIN}
+

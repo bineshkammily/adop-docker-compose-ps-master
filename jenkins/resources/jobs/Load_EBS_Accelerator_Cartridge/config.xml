@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.28"/>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
+      <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>ENVIRONMENT</name>
+          <description>Your environment name. It is important that this name is also aligned with your SVN branch.</description>
+          <defaultValue>DEVELOPMENT</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>SCM_PROJECT_URL</name>
+          <description>By default, this http://svn-server/svn resolves to the dockerized Collabnet svn server. If you have an external SVN server change this url accordingly.</description>
+          <defaultValue>http://svn-server/svn/R12EBS</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>SCM_USER</name>
+          <description>Your private SVN server administrator.</description>
+          <defaultValue>admin</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.PasswordParameterDefinition>
+          <name>SCM_PASSWORD</name>
+          <description>Your private SVN server administrator password.</description>
+          <defaultValue>admin</defaultValue>
+        </hudson.model.PasswordParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>APP_SSH_USER</name>
+          <description>The unix user that has access to your application server.</description>
+          <defaultValue>applmgr</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>APP_SERVER</name>
+          <description>The resolvable hostname or IP address of your application server.</description>
+          <defaultValue>appserver.ebs.com</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>APPL_HOME</name>
+          <description>Oracle EBS application specific value. Consult with your Apps DBAs.</description>
+          <defaultValue>/u01/oracle/apps/apps/apps_st</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>XXCU_TOP_DIRECTORY</name>
+          <description>Oracle EBS application specific value. Consult with your Apps DBAs.</description>
+          <defaultValue>/u01/oracle/apps/apps/apps_st/appl/xxcu/12.0.0</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>COMMON_TOP</name>
+          <description>Oracle EBS application specific value. Consult with your Apps DBAs.</description>
+          <defaultValue>/u01/oracle/apps/apps/apps_st/comn</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>FORMS_TRACE_DIR</name>
+          <description>Oracle EBS application specific value. Consult with your Apps DBAs.</description>
+          <defaultValue>/u01/oracle/app/prod/r12prd/inst_bxlpcn08/apps/AESGDEV_bxlpcn08-c/logs/ora/10.1.2/forms</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ERP_MANAGER_DB_HOST</name>
+          <description>By default, ricewmanager.local resolves to the ERP postgres container.</description>
+          <defaultValue>ricewmanager.local</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ERP_MANAGER_DB_PORT</name>
+          <description>Do not change if you are not using an external ERP manager database.</description>
+          <defaultValue>5432</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.PasswordParameterDefinition>
+          <name>ERP_MANAGER_DB_PASSWORD</name>
+          <description>By default, welcome1 is the database password for acn_erp_manager.</description>
+          <defaultValue>welcome1</defaultValue>
+        </hudson.model.PasswordParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>DB_READ_USER</name>
+          <description>The database user from the target Oracle Database environment that has a read access.</description>
+          <defaultValue>readall</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>DB_SERVER</name>
+          <description>The resolvable hostname or IP address of your Oracle Database server.</description>
+          <defaultValue>dbserver.ebs.com</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>DB_NAME</name>
+          <description>Your Oracle Database SID.</description>
+          <defaultValue>ORACLDB</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>DB_PORT</name>
+          <description>The target Oracle Database server port.</description>
+          <defaultValue>1521</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>CARTRIDGE_CLONE_URL</name>
+          <description>The ADOP cartridge url that contains the groovy scripts to create the jenkins jobs. Add jenkins ssh key to your innersource account to clone this.</description>
+          <defaultValue>ssh://git@newsource.accenture.com/adopebs/adop-b-framework-oracle-ebs-cartridge-211.git</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.BooleanParameterDefinition>
+          <name>IMPORT_REFERENCE_PROJECT</name>
+          <description>Uncheck this if you already have imported a reference project.</description>
+          <defaultValue>false</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>PROJECT_CLONE_SVN_URL</name>
+          <description>The default value is from the Accenture Engineered Systems Lab and is accessible from vpn.accenture.com. The downloaded codes will be committed to the Private Svn repository.</description>
+          <defaultValue>https://10.9.238.88:18080/svn/R12EBS/branches/DEVELOPMENT</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>PROJECT_CLONE_SVN_USER</name>
+          <description></description>
+          <defaultValue>admin</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.PasswordParameterDefinition>
+          <name>PROJECT_CLONE_SVN_PASSWORD</name>
+          <description></description>
+          <defaultValue>UDqHDMvCfBcUVBq5soR6qCvQuODNxaEg5tT70oosKgQErGqHhUrA7gupJsoB+VOo/0bVRCaONemlWKCFCkGcdA==</defaultValue>
+        </hudson.model.PasswordParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+    <de.pellepelster.jenkins.walldisplay.WallDisplayJobProperty plugin="jenkinswalldisplay@0.6.30"/>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.4.4">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>$CARTRIDGE_CLONE_URL</url>
+	<credentialsId>adop-jenkins-master</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <javaposse.jobdsl.plugin.ExecuteDslScripts plugin="job-dsl@1.39">
+      <scriptText>import jenkins.model.*
+import com.cloudbees.plugins.credentials.*
+import com.cloudbees.plugins.credentials.common.*
+import com.cloudbees.plugins.credentials.domains.*
+import com.cloudbees.plugins.credentials.impl.*
+import com.cloudbees.jenkins.plugins.sshcredentials.impl.*
+import hudson.plugins.sshslaves.*;
+
+domain = Domain.global()
+store = Jenkins.instance.getExtensionList(&apos;com.cloudbees.plugins.credentials.SystemCredentialsProvider&apos;)[0].getStore()
+
+usernameAndPassword = new UsernamePasswordCredentialsImpl(
+  CredentialsScope.GLOBAL,
+  &quot;svn-credentials-id&quot;, // id 
+  &quot;SVN SCM user credentials&quot;, //description
+  &quot;${SCM_USER}&quot;, //username
+  &quot;${SCM_PASSWORD}&quot; //password
+)
+
+store.addCredentials(domain, usernameAndPassword)</scriptText>
+      <usingScriptText>true</usingScriptText>
+      <ignoreExisting>false</ignoreExisting>
+      <removedJobAction>IGNORE</removedJobAction>
+      <removedViewAction>IGNORE</removedViewAction>
+      <lookupStrategy>JENKINS_ROOT</lookupStrategy>
+      <additionalClasspath></additionalClasspath>
+    </javaposse.jobdsl.plugin.ExecuteDslScripts>
+    <javaposse.jobdsl.plugin.ExecuteDslScripts plugin="job-dsl@1.39">
+      <targets>jenkins/jobs/dsl-ricew/*.groovy</targets>
+      <usingScriptText>false</usingScriptText>
+      <ignoreExisting>false</ignoreExisting>
+      <removedJobAction>IGNORE</removedJobAction>
+      <removedViewAction>IGNORE</removedViewAction>
+      <lookupStrategy>JENKINS_ROOT</lookupStrategy>
+      <additionalClasspath></additionalClasspath>
+    </javaposse.jobdsl.plugin.ExecuteDslScripts>
+    <hudson.tasks.Shell>
+      <command>#!/bin/bash
+if [ $IMPORT_REFERENCE_PROJECT == true ]; then
+  svn co ${PROJECT_CLONE_SVN_URL} R12EBS --username=${PROJECT_CLONE_SVN_USER} --password=${PROJECT_CLONE_SVN_PASSWORD} --non-interactive --no-auth-cache --trust-server-cert
+
+  svn import -m &quot;New import&quot; R12EBS ${SCM_PROJECT_URL} --username=admin --password=admin --non-interactive --no-auth-cache --trust-server-cert           
+else
+ echo "No projects were imported.."
+fi
+  </command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>
